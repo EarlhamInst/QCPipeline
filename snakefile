@@ -13,7 +13,7 @@ rule QC_pipeline:
         "Quast/report.html",
         "Quast/report.pdf",
         "Quast/transposed_report.tsv",
-        "LengthStats/length_stats.txt"
+        "LengthStats/length_stats.tsv"
     params:
         wd = config['WD'],
         pr = config['Name']
@@ -77,7 +77,7 @@ rule length_calculations:
         min = config['Min_length'],
         max = config['Max_length']
      output:
-        "LengthStats/length_stats.done"
+        "LengthStats/length_stats.tsv"
      script:
          "scripts/length_stats.sh"
 """
@@ -98,4 +98,4 @@ rule merqury:
         pr = config['Name']
     script:
         "scripts/merqury.sh"
-"""
+"""   
